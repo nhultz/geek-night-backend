@@ -21,5 +21,7 @@ public class Song {
   private boolean isFavorite;
   private Album album;
 
+  public Song() {
+  }
 }
 
