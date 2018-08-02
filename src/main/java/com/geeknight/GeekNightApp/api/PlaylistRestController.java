@@ -11,7 +11,6 @@ import static com.geeknight.GeekNightApp.config.PlaylistApis.GET_PLAYLIST_BY_TIT
 import static com.geeknight.GeekNightApp.config.PlaylistApis.PLAYLIST_BASE_URL;
 
 @RestController
-@RequestMapping("api/v1/")
 public class PlaylistRestController {
 
     @Autowired
