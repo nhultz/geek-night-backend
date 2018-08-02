@@ -1,7 +1,7 @@
 package com.geeknight.GeekNightApp.config;
 
 public class PlaylistApis {
-    public static final String PLAYLIST_BASE_URL = "api/v1/playlist";
+    public static final String PLAYLIST_BASE_URL = "/api/v1/playlist";
     public static final String GET_PLAYLIST_BY_TITLE = PLAYLIST_BASE_URL + "/{title}";
 
 
