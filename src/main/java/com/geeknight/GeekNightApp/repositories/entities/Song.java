@@ -19,6 +19,7 @@ public class Song {
   private Duration duration;
   private boolean isExplicit;
   private boolean isFavorite;
+  private Album album;
 
 }
 
