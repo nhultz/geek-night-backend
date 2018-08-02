@@ -1,14 +1,23 @@
 package com.geeknight.GeekNightApp.repositories.entities;
 
+
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
+import java.time.Duration;
 
 @Entity
+@Getter @Setter
 public class Album {
 
-    private Long id;
+    private int id;
     private String title;
-    private Long artistId;
-
+    private int artistId;
+    private Genre genre;
+    private Duration duration;
+    private boolean isExplicit;
+    private boolean isFavorite;
 
 
 }
