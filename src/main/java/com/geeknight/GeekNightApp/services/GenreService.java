@@ -26,8 +26,8 @@ public class GenreService {
         return genreRepository.findAll();
     }
 
-    public Genre getGenreByName(String name){
-        return genreRepository.getGenreByName(name);
+    public Genre getGenreById(Long id){
+        return genreRepository.getGenreById(id);
     }
 
 
