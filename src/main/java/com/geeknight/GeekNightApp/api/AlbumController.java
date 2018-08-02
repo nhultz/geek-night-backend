@@ -1,6 +1,7 @@
 package com.geeknight.GeekNightApp.api;
 
 import com.geeknight.GeekNightApp.repositories.entities.Album;
+import com.geeknight.GeekNightApp.repositories.entities.Song;
 import com.geeknight.GeekNightApp.services.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,11 @@ public class AlbumController {
         return this.albumService.getAlbum(albumId);
     }
 
+    @GetMapping (value = "/album/{albumId}/songs")
+    public Collection<Song> getAllSongsFromAlbum(@PathVariable Long albumId){
+        return this.albumService.getAllSongsFromAlbum(albumId);
+    }
+
     @PostMapping (value = "/album")
     public Album createNewAlbum(Album newAlbum){
         return this.albumService.createNewAlbum(newAlbum);
@@ -39,7 +45,7 @@ public class AlbumController {
     }
 
     @DeleteMapping (value = "/album/{albumId}")
-    public ResponseEntity deleteAlbum(@PathVariable Long albumId){
+    public Collection<Album> deleteAlbum(@PathVariable Long albumId){
         return this.albumService.deleteAlbum(albumId);
     }
 

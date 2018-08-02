@@ -2,6 +2,7 @@ package com.geeknight.GeekNightApp.services;
 
 import com.geeknight.GeekNightApp.repositories.AlbumRepository;
 import com.geeknight.GeekNightApp.repositories.entities.Album;
+import com.geeknight.GeekNightApp.repositories.entities.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,10 +36,14 @@ public class AlbumService {
         return this.albumRepository.save(updatedAlbum);
     }
 
-    public ResponseEntity deleteAlbum(Long albumId){
+    public Collection<Album> deleteAlbum(Long albumId){
         Album album = this.albumRepository.getOne(albumId);
         this.albumRepository.delete(album);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return getAllAlbums();
+    }
+
+    public Collection<Song> getAllSongsFromAlbum(Long albumId){
+        return this.albumRepository.getAllSongsFromAlbum(albumId);
     }
 
 
