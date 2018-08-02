@@ -14,11 +14,16 @@ public class Song {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+<<<<<<< HEAD
   private int id;
+=======
+  private long id;
+>>>>>>> master
   private String title;
   private Duration duration;
   private boolean isExplicit;
   private boolean isFavorite;
+  private Album album;
 
 }
 
