@@ -1,28 +1,29 @@
 package com.geeknight.GeekNightApp.api;
 
-import com.geeknight.GeekNightApp.repositories.SongRepo;
 import com.geeknight.GeekNightApp.repositories.entities.Song;
+import com.geeknight.GeekNightApp.services.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Collection;
 import java.util.Optional;
 
 
 @RestController
 public class SongRestController {
-    private SongRepo songRepo;
-
     @Autowired
-    public SongRestController(SongRepo songRepo){this.songRepo = songRepo;}
+    private SongService songService;
 
+    public SongRestController(SongService songService){this.songService = songService;}
 
-    public Collection<Song> getAllSongs(){return songRepo.findAll();}
+    @GetMapping(value = "/api/v1/song")
+    public Collection<Song> getAllSongs(){return songService.getAllSongs();}
 
+    @GetMapping(value = "api/v1/song/{songId}" )
+    public Optional<Song> getSongById(@PathVariable long songId){return songService.getSongById(songId);}
 
-    public Optional<Song> getSongById(@PathVariable int songId){return songRepo.findById(songId);}
-
-
+    @PostMapping(value = "api/v1/song/{songId}/favorite")
+    public Song createNewSong(@PathVariable long songId, Song song){return songService.createNewSong(song);}
 
 }
 
